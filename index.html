@@ -1,0 +1,94 @@
+<html dir="ltr" lang="es" class="" lazy-loaded="true">
+	<head>
+		<meta charset="utf-8">
+		<script 
+			src="https://apps.mypurecloud.ie/widgets/9.0/cxbus.min.js" 
+			onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.ie/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');">
+		</script>
+		<script>
+		window._genesys = {
+		   "widgets": {
+			 "webchat": {
+			   "transport": {
+				 "type": "purecloud-v2-sockets",
+				 "dataURL": "https://api.mypurecloud.ie",
+				 "deploymentKey": "75de4e25-3ea3-468c-bc2d-c6532d8eca4e",
+				 "orgGuid": "0cd8a3af-20b0-4360-9865-19c107a159f0",
+				 "interactionData": {
+				   "routing": {
+					 "targetType": "QUEUE",
+					 "targetAddress": "Demo Message",
+					 "priority": 2
+				   }
+				 }
+			   },
+			   "userData": {
+				 "addressStreet": "",
+				 "addressCity": "",
+				 "addressState": "",
+				 "addressPostalCode": "",
+				 "phoneNumber": "",
+				 "customField1Label": "",
+				 "customField1": "",
+				 "customField2Label": "",
+				 "customField2": "",
+				 "customField3Label": "",
+				 "customField3": ""
+			   }
+			 }
+		   }
+		 };
+
+		function getAdvancedConfig(){
+			return {
+			  "form": {
+				"autoSubmit": false,
+				"firstname": "",
+				"lastname": "",
+				"email": "",
+				"subject": ""
+			  },
+			  "formJSON": {
+				"wrapper": "<table></table>",
+				"inputs": [
+				  {
+					"id": "cx_webchat_form_firstname",
+					"name": "firstname",
+					"maxlength": "100",
+					"placeholder": "Required",
+					"label": "First Name"
+				  },
+				  {
+					"id": "cx_webchat_form_lastname",
+					"name": "lastname",
+					"maxlength": "100",
+					"placeholder": "Required",
+					"label": "Last Name"
+				  },
+				  {
+					"id": "cx_webchat_form_email",
+					"name": "email",
+					"maxlength": "100",
+					"placeholder": "Optional",
+					"label": "Email"
+				  },
+				  {
+					"id": "cx_webchat_form_subject",
+					"name": "subject",
+					"maxlength": "100",
+					"placeholder": "Optional",
+					"label": "Subject"
+				  }
+				]
+			  }
+			}
+		}
+		const customPlugin = CXBus.registerPlugin('Custom');
+		</script>
+
+		<button type="button" id="chat-button" onclick="customPlugin.command('WebChat.open', getAdvancedConfig());">Start Chat</button>
+	
+	</head>
+	<body style="background-color: rgb(255, 255, 255);">
+	</body>
+</html>
